@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style1.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: linear-gradient(to bottom right, #344632, #84836a);
+            overflow: hidden;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            float: left;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+            text-decoration: none;
+        }
+
+        .dropdown {
+          float: left;
+          
+        }
+        .dropdown .dropbtn {
+          border: none;
+          outline: none;
+          color: white;
+          padding: 0px 14px;
+          background-color: inherit;
+          margin: 0;
+          font-size: 100%;
+        }
+
+        .dropdown-content {
+          display: none;
+          position: fixed;
+          background-color: #f9f9f9;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+        }
+
+        .dropdown-content a {
+          float: none;
+          color: black;
+          padding: 14px 16px;
+          text-decoration: none;
+          display: block;
+          text-align: left;
+        }
+
+        .dropdown:hover .dropdown-content {
+          display: block;
+        }
+
+        .navbar a:hover, .dropdown:hover .dropbtn {
+          background-color: #ddd;
+          color: black;
+          
+        }
+
+        .divider {
+            height: 1px;
+            background-color: #ccc;
+            margin: 20px 0;
+        }
+
+        .about-us {
+            text-align: center;
+            padding: 40px 0;
+            background-color: white;
+            color: black;
+        }
+
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .card-title {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .card-text {
+            color: #666;
+        }
+
+        .contact-us {
+            padding: 40px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .contact-us h3 {
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .century {
+            text-align: center;
+            padding-top: 40px;
+        }
+
+        .back {
+            margin: 15px;
+            padding: 10px;
+            background-color: #848368;
+            color: white;
+            display: -webkit-inline-box;
+        }
+
+        .back:hover {
+            background: #dbbc9a;
+            color: black;
+            text-decoration: none;
+        }
+        .back2 {
+            margin: 15px;
+            padding: 1%;
+            margin-left: 90%;
+            width: 8%;
+            background: linear-gradient(to bottom right, #84836a,#84836a);
+            color: white;
+            display: inline-block;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+        .back2:hover {
+          background: #dbbc9a;
+          color: black;
+          text-decoration: none;
+        }
+        .back3 {
+          text-align: center;
+            margin-top: 15px;
+            margin-bottom: 2%;
+            padding: 1%;
+            margin-left: 90%;
+            width: 8%;
+            height: 0%;
+            background: linear-gradient(to bottom right, #84836a,#84836a);
+            color: white;
+            display: inline-block;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+        .back3:hover{
+          background: #dbbc9a;
+          color: black;
+          text-decoration: none;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            width: 330px;
+            height: 330px;
+            perspective: 1000px;
+            margin: 15px;
+            padding-bottom: 25px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .flip-card-front {
+            background-color: #bbb;
+            color: black;
+        }
+
+        .flip-card-back {
+            background: linear-gradient(to bottom right, #344632, #84836a);
+            color: white;
+            transform: rotateY(180deg);
+        }
+        .carousel-caption {
+            position: absolute;
+            transform: translate(-0%, -30%);
+            background-color: rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .carousel-caption h3 {
+            color: white;
+        }
+
+        .carousel-caption p {
+            color: white;
+        }
+        .Revolution {
+            padding: 40px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-size: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .influence1 {
+            padding: 50px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-size: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .revol{
+            padding: 10px;
+            text-align: center;
+        }
+        .revol2{
+            padding-top: 60px;
+            text-align: center;
+        }
+        .revol3{
+            padding-top: 30px;
+            text-align: center;
+        }
+        .century2{
+            max-width: 40em;
+            max-height: 30em;
+            display: flex;
+            padding-bottom: 100px;
+        }
+        .bullet{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 70px;
+           text-align: center;
+         }
+
+        .century3{
+            max-width: 40em;
+            max-height: 30em;
+            display: flex;
+            padding-bottom: 100px;
+        }
+        .bullet2{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 70px;
+            text-align: center;
+        }
+        .container{
+            margin-bottom: 50px;
+        }
+
+        .mission:hover{
+            transform: translateY(-10px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .mission h4 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        /* Mission, Vision, and Goals */
+        #mission-vision-goals {
+            padding: 40px 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        #mission-vision-goals h4 {
+            color: #333;
+        }
+
+        #mission-vision-goals p {
+            color: #666;
+        }
+
+        #mission-vision-goals ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        #mission-vision-goals ul li {
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        #mission-vision-goals .section-title {
+            margin-bottom: 40px;
+        }
+
+        .mission {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            background-color: #fff;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .picture{
+
+            width: 90%;
+            height: 90%;
+            justify-content:center left;
+            padding-bottom: 10px;
+        }
+        /* TRIVIA */
+         .carousel-item {
+            height: 40vh; /* Adjust the height of the carousel items as needed */
+            color: #3d3a3a;           
+         
+        }
+        a.carousel-control-next {
+            height: 120%;
+        }
+        a.carousel-control-prev {
+            height: 120%;
+        }
+        .trivia {
+            padding: 10px;
+            margin-top: 5%;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            background: #eef6e9;
+            border-left: 5px solid #344632;
+            font-size: 1.1em;
+        }
+        .trivia b {
+            color: forestgreen;
+            font-size: 2em; 
+            font-size: 1.3em; 
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+        <button class="dropbtn"><a href="rizal.html">Rizal's Life</a>
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="rizalinfo.html"> Dr. Jose Rizal</a>
+          <a href="lesson2.html"> History (19th Century)</a>
+          <a href="lesson4.html"> Rizal’s Life: Family, Childhood and Early Education</a>
+          <a href="lesson5.html"> Rizal’s Life: Higher Education and Life Abroad</a>
+          <a href="propaganda.html"> Propaganda Movement</a>
+        </div>
+      </div> 
+        <a href="index.html">About Us</a>
+        <a href="index.html">Contact Us</a>
+    </nav>
+    <a class="back" href="lesson5.html">< Back</a>
+    
+            <!--PHILIPPINE REVOLUTION-->
+            <div class="col-md-12">
+                <div class="Revolution">
+                    <h1 class="revol"><b>The Propaganda Movement</b></h1>
+                    <!--TRIVIA-->
+                    <div class="container">
+                        <div id="triviaCarousel" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                 <div class="carousel-item active">
+                                    <div class="trivia text-center">
+                                        <b>DID YOU KNOW?</b><br><br>
+                                        Gomburza refers to three Filipino priests—Mariano Gómez, José Burgos, and Jacinto Zamora—who were executed by the Spanish colonial authorities, after being accused of involvement in the Cavite Mutiny.
+                                    </div>
+                                </div>
+                                    <div class="carousel-item">
+                                        <div class="trivia text-center">
+                                            <b>DID YOU KNOW?</b><br><br>
+                                            The execution of Gomburza sparked widespread outrage and became a rallying point for Filipino nationalists. It highlighted the injustices of Spanish colonial rule and galvanized the desire for reform and independence.
+                                        </div>  
+                                    </div>
+                                        <div class="carousel-item">
+                                            <div class="trivia text-center">
+                                                <b>DID YOU KNOW?</b><br><br>
+                                                The Propaganda Movement was a campaign by Filipino reformists in the late 19th century aimed at achieving political and social reforms through peaceful means. They sought to address issues such as racial discrimination, abuses by Spanish authorities, and lack of representation for Filipinos.
+                                            </div>
+                                        </div>
+                                <a class="carousel-control-prev" href="#triviaCarousel" role="button" data-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                     <span class="sr-only">Previous</span>
+                                </a>
+                                <a class="carousel-control-next" href="#triviaCarousel" role="button" data-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                        </div>
+                    </div>
+                    <!--END TRIVIA-->
+                        <img class="century2" src="Images/Propaganda Movement .jpg" alt="picture ni rizal">
+                            <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp The Propaganda Movement (1872-1892) was the first Filipino nationalist movement, led by a Filipino elite and inspired by the protonationalist activism of figures such as José Burgos and by his execution at the hands of colonial authorities. Propagandists were largely young men, often mestizos and creoles whose families could afford to send them to study in Spanish universities in Madrid and Barcelona. There, they encountered the tumult of 19th century political movements inspired by Enlightenment thought, individual rights, constitutionalism, and anti-clericalism.</p>
+                </div>
+            </div>
+        <h2 class="revol2"><b>Cavite Mutiny</b></h2>
+        <div id="mission-vision-goals" class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="mission">
+                    <h4><b>Sergeant La Madrid</b></h4>
+                    <img class="picture" src="Images/madrids.jpeg" alt="la madrid" style="height: 37em;"></a>
+                    <p>January 20, 1872, about 200 Filipino soldiers and dock workers of Cavite, under the leadership of Sergeant La Madrid, mutinied and killed their Spanish officers</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="mission">
+                    <h4><b>GomBurZa</b></h4>
+                    <img class="picture" src="Images/gomburza.jpg" alt="picture ni pilar"></a>
+                    <p>Fathers Jose Burgos, Mariano Gomez, Jacinto Zamora were accused of treason to Spain and tried in an unfair trial. They were sentenced to death by garrote on February 17, 1872 in Bagumbayan.</p>
+                </div>
+            </div>
+            </div>
+        </div>
+            <div class="col-md-12">
+                <div class="Revolution">
+                <h1 class="revol"><b>La Solidaridad</b></h1>
+                <img class="century2" src="Images/lasolidaridad.jpg" alt="la soli" style=" height: 60%; width: 60%;">
+                    <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp La Solidaridad, newspaper, based in Barcelona and later Madrid, that espoused the relatively liberal views of the Filipino Propaganda Movement, which sought reform in the Spanish colony of the Philippines. The group was made up of a coalition of Filipino exiles and university students who had matriculated at European universities. 
+                        <br><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp The first issue of the biweekly newspaper was published in 1889 and La Solidaridad remained a major public arm of the movement until its final issue in 1895. The paper sought to put political pressure on the Spanish government, and, though not initially revolutionary, it helped spawn a united front for Filipino independence.</p>
+                </div>
+            </div>
+            <!-- CONTRIBUTORS-->
+            <h1 class="revol"><b>Contributors of La Solidarida</b></h1>
+        <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="Images/pilar.jpg" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>Marcelo .H del Pilar (Plaridel)</h3>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                      <br>
+                      <h1>Marcelo .H del Pilar (Plaridel)</h1>
+                      <br>
+                        <p>Marcelo H. del Pilar replaced Graciano López Jaena as the editor of La Solidaridad</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="Images/regidor.jpg" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>Antonio Ma. Regidor</h3>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                      <br>
+                      <h1>Antonio Ma. Regidor</h1>
+                      <br>
+                        <p>He was part of diplomatic missions to seek foreign recognition of Philippine independence. Regidor returned to the Philippines in 1907 and died in France in 1910.</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="Images/rizal.png" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>Dr. Jose Rizal (Laong Laan)</h3>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                      <br>
+                      <h1>Dr. Jose Rizal (Laong Laan)</h1>
+                      <br>
+                        <p>Jose Rizal published several articles and essays under La Solidaridad. One of his notable works is "The Philippines a Century Hence" which discusses his interpretation of history and the future of the Philippines.</p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="Images/isabelo.jpg" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>Isabelo delos Reyes</h3>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                      <br>
+                      <h1>Isabelo delos Reyes</h1>
+                      <br>
+                        <p>Isabelo de los Reyes contributed to most of Manila's newspapers and in 1889 he founded the newspaper El Ilocano, said to be the first such newspaper written solely in a Philippine vernacular.</p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="Images/ponce.jpg" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>Mariano Ponce (Tigbalang)</h3>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                      <br>
+                      <h1>Mariano Ponce (Tigbalang)</h1>
+                      <br>
+                        <p>With Graciano Lopez-Jaena, Mariano Ponce co-founded the periodical La Solidaridad in February 1889; served as its administrator and headed its literary section.</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="Images/eduardo.jpg" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>Eduardo de Lete</h3>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                      <br>
+                      <h1>Eduardo de Lete</h1>
+                      <br>
+                        <p>Eduardo de Lete was a Philippine-born Spaniard (Better known as Insulares). He was part of La Solidaridad, a newspaper which was established to express the goal of the Propaganda Movement towards achieving assimilation with Spain.</p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="Images/luna.jpg" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>Antonio Luna (Taga-ilog)</h3>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                      <br>
+                      <h1>Antonio Luna (Taga-ilog)</h1>
+                      <br>
+                        <p>In Spain, he contributed to the La Solidaridad, published by the reformist movement of the elite Filipino students in Spain. He wrote a piece titled Impressions which dealt with Spanish customs and idiosyncrasies under the pen-name "Taga-ilog".</p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="Images/panganiban.jpg" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>Jose Ma. Panganiban (Jomapa)</h3>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                      <br>
+                      <h1>Jose Ma. Panganiban (Jomapa)</h1>
+                      <br>
+                        <p>Panganiban is one of the main writers and contributors for La Soli, writing under the pen names "Jomapa" and "J.M.P".Among the articles he published were "El Pensamiento".</p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="Images/paterno.jpg" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>Dr. Pedro Paterno</h3>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                      <br>
+                      <h1>Dr. Pedro Paterno</h1>
+                      <br>
+                        <p>Paterno's greatest contribution to the country was his role as a mediator in the Pact of Biak-na-Bato on December 14, 1897 which led to peace agreement between the Spaniards and the Filipinos, an account of which he published in 1910.</p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="Images/alejandrino.jpg" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>Jose Alejandrino</h3>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                      <br>
+                      <h1>Jose Alejandrino</h1>
+                      <br>
+                        <p>While in Spain, he became an active member of the Propaganda Movement. He joined the editorial staff of La Solidaridad. He was the one who brought the manuscript of the El Filibusterismo to the printing press for publication.</p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="Images/blumentrit.jpg" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>Professor Blumentrit</h3>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                      <br>
+                      <h1>Professor Blumentrit</h1>
+                      <br>
+                        <p>Alongside Rizal, Blumentritt was a significant contributor to the publication La Solidaridad, published by Filipino expatriates from 1889 to 1895 as a voice for advocacy of political reforms in the Philippines.</p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="Images/morayta.jpg" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>Dr. Morayta</h3>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                      <br>
+                      <h1>Dr. Morayta</h1>
+                      <br>
+                        <p>Calle Morayta was named after Spanish writer Miguel Morayta, a supporter of the Propaganda Movement and founder of the Asociacion Hispano-Filipino. Born on Sept. 3, 1834, Morayta became Jose Rizal’s professor at the Universidad Central de Madrid.</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                            <div class="influence1">
+                                <h3><b>LA SOLIDARIDAD AIMS:</b></h3>
+                                <br>
+                                <li>To portray vividly the deplorable condition of the Philippines</li>
+                                <li>To work peacefully for the political and social reforms</li>
+                                <li>To combat the evil forces of medievalism and reaction</li>
+                                <li>To advocate liberal ideas and progress</li>
+                                <li>To champion the legitimate aspirations of the Filipino people for democracy and happiness.</li>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/W9UfpsjN99I?t=657s" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <!--<p>If the video does not load, you can watch it on <a href="https://www.youtube.com/watch?v=W9UfpsjN99I&t=657s" target="_blank">YouTube</a>.</p>--->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <div class="embed-responsive embed-responsive-16by9">
+                                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/DRCrYxJd7CU?t=354s" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <!-- <p>If the video does not load, you can watch it on <a href="https://www.youtube.com/watch?v=DRCrYxJd7CU&t=354s" target="_blank">YouTube</a>.</p> -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    
+            <a class="back2" href="q5_1.html">Take Quiz</a>
+            <a class="back3" href="index.html">Home</a>
+    <div class="footer">
+        <p>&copy; 2024 Rizal Edventures. All rights reserved.</p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

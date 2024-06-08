@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style1.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            overflow: hidden;
+        }
+        nav a {
+          text-decoration: none;
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            float: left;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+            text-decoration: none;
+        }
+
+        .dropdown {
+            float: left;
+            font-size: 15px;
+        }
+
+        .dropdown .dropbtn {
+            font-size: 16px;  
+            border: none;
+            outline: none;
+            color: white;
+            padding: 0px 16px;
+            background-color: inherit;
+            margin: 0;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: fixed;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 10px 10px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: #ddd;
+            color: black;
+        }
+         /* TRIVIA */
+         .carousel-item {
+            height: 30vh; /* Adjust the height of the carousel items as needed */
+            color: #3d3a3a;           
+         
+        }
+        a.carousel-control-next {
+            height: 120%;
+        }
+        a.carousel-control-prev {
+            height: 120%;
+        }
+        .trivia {
+            padding: 20px;
+            margin-top: 5%;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            background: #eef6e9;
+            border-left: 5px solid #344632;
+            font-size: 1.3em;
+        }
+        .trivia b {
+            color: forestgreen;
+            font-size: 2em; 
+            font-size: 1.3em; 
+        }
+        hr{
+
+            text-decoration: none;
+            height: 0%;
+            border: none;
+        }
+       /* Flip Card */
+        .century {
+            text-align: center;
+            padding-top: 40px;
+        }
+        .back {
+            margin: 15px;
+            padding: 10px;
+            background: linear-gradient(to bottom right, #84836a,#84836a);
+            color: white;
+            display: -webkit-inline-box;
+        }
+
+        .back:hover {
+          background: #dbbc9a;
+          color: black;
+          text-decoration: none;;
+        }
+        .back2 {
+            margin: 15px;
+            padding: 1%;
+            margin-left: 90%;
+            width: 8%;
+            background: linear-gradient(to bottom right, #84836a,#84836a);
+            color: white;
+            display: inline-block;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+        .back2:hover {
+          background: #dbbc9a;
+          color: black;
+          text-decoration: none;
+        }
+        .back3 {
+          text-align: center;
+            margin-top: 15px;
+            margin-bottom: 2%;
+            padding: 1%;
+            margin-left: 90%;
+            width: 8%;
+            height: 0%;
+            background: linear-gradient(to bottom right, #84836a,#84836a);
+            color: white;
+            display: inline-block;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+        .back3:hover{
+          background: #dbbc9a;
+          color: black;
+          text-decoration: none;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            width: 330px;
+            height: 330px;
+            perspective: 1000px;
+            margin: 15px;
+            padding-bottom: 25px;
+        
+        }
+
+        .flip-card-inner {
+          top:20% ;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .flip-card-front {
+            background-color: #bbb;
+            color: black;
+        }
+
+        .flip-card-back {
+            background-color: #e1be96;
+            color: white;
+            transform: rotateY(180deg);
+            
+        }
+        .carousel-caption {
+            position: absolute;
+            transform: translate(-0%, -30%);
+            background-color: rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .carousel-caption h3 {
+            color: white;
+        }
+
+        .carousel-caption p {
+            color: white;
+        }
+        .Revolution {
+            margin-top: 80px;
+            padding-top: 80px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-size: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .revol{
+            padding: 10px;
+            text-align: center;
+        }
+        .century2{
+            max-width: 40em;
+            max-height: 30em;
+            display: flex;
+            padding-bottom: 100px;
+        }
+        .bullet{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 70px;
+           text-align: center;
+         }
+
+          img .century3{
+            max-width: 40em;
+            max-height: 11111em;
+            display: flex;
+            padding-bottom: 100px;
+            top: 110%;
+        }
+        .bullet2{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 70px;
+            text-align: center;
+        }
+          /* YouTube Video Embed */
+          .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            margin: 20px 0;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+
+        <div class="dropdown">
+        <button class="dropbtn"><a href="rizal.html">Rizal's Life</a>
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="rizal.html"> Dr. Jose Rizal</a>
+          <a href="lesson2.html"> History (19th Century)</a>
+          <a href="lesson4.html"> Rizal’s Life: Family, Childhood and Early Education</a>
+          <a href="lesson5.html"> Rizal’s Life: Higher Education and Life Abroad</a>
+          <a href="propaganda.html"> Propaganda Movement</a>
+        </div>
+      </div> 
+
+        <a href="index.html">About Us</a>
+        <a href="index.html">Contact Us</a>
+    </nav>
+    <a class="back" href="rizalinfo.html">< Back</a>
+    <!-------THE PHILIPPINES IN 19TH CENTURY-------->
+    <div class="century"><h1><b>THE PHILIPPINES IN 19TH CENTURY</b></h1></div>
+     <!-- DID YOU KNOWN? -->
+     <div class="container">
+      <div id="triviaCarousel" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+              <div class="carousel-item active">
+                  <div class="trivia text-center">
+                      <b>DID YOU KNOW?</b><br><br>
+                      Before Spanish colonization, early Philippine merchants traded with countries including: <hr>
+                      China, Japan, Cambodia, India, Borneo, atpb.
+
+                  </div>
+              </div>
+                  <div class="carousel-item">
+                      <div class="trivia text-center">
+                          <b>DID YOU KNOW?</b><br><br>
+                          Did you know that the Manila-Acapulco Galleon Trade made Manila a center of commerce in the East being sent to Mexico, involving goods like:
+                          Mangoes, Tamarind, Rice, and Chinese Tea.
+                      </div>
+                  </div>
+          </div>
+          <a class="carousel-control-prev" href="#triviaCarousel" role="button" data-slide="prev">
+               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#triviaCarousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+          </a>
+      </div>
+  </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="Images/trading.jpg" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>The Philippine Trade</h3>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                      <br>
+                      <h1>The Philippine Trade</h1>
+                      <br>
+                      <p>Long before the Spaniards came to the Philippines, trade among the early Filipinos and with traders from the neighboring lands like China, Java, Borneo, and Thailand was conducted through barter</p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="Images/acapulo.jpg" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>The Manila Acapulo</h3>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <br>
+                      <h1>The Manila Acapulco</h1>
+                      <br>
+                      <p>The Manila galleon, originally known as La Nao de China,and Galeón de Acapulco,refers to the Spanish trading ships that linked the Spanish Crown's Viceroyalty of New Spain, based in Mexico City, with its Asian territories, collectively known as the Spanish East Indies, across the Pacific Ocean.</p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="Images/lamco.jpg" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>Domingo Lam Co.</h3>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <br>
+                      <h1>Domingo Lam Co.</h1>
+                      <br>
+                      <p> Chinese immigrant and business tycoon Don Domingo Lamco (Chinese name: Cue Yi-Lam) of Laguna was the great-great grandfather of Jose Rizal. Lamco is originally from Amoy China who came to the Philippines in the mid 17th century.</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <img src="Images/industry.png" alt="Avatar" style="width:330px;height:305px;">
+                      <div class="carousel-caption">
+                          <h3>The Philippine Industrial</h3>
+                      </div>
+                  </div>
+                  <div class="flip-card-back">
+                      <br>
+                    <h1>The Philippine Industrial</h1>
+                    <br>
+                    <p>The growth of commercial agriculture resulted in the appearance of a new class. Alongside the landholdings of the church and the rice estates of the pre-Spanish nobility there arose haciendas of coffee, hemp, and sugar, often the property of the Chinese-Filipino mestizos.</p>
+                  </div>
+                </div>
+              </div>  
+            </div>
+            <div class="col-md-4">
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <img src="Images/friar.jpg" alt="Avatar" style="width:330px;height:305px;">
+                      <div class="carousel-caption">
+                          <h3>The Friars</h3>
+                      </div>
+                  </div>
+                  <div class="flip-card-back">
+                      <br>
+                    <h1>The Friars</h1>
+                     <br>
+                    <p>The Spanish friars were the crucial elements in the Westernization of the Philippines, and in spreading the Christian faith in that part of the world. The friars in the 19th century abused the Filipinos through their pervasive presence in daily life, involvement in corruption, and conflicts with local officials and clergy.</p>
+                  </div>
+                </div>
+              </div> 
+            </div>
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="Images/ilustrados.jpg" alt="Avatar" style="width:330px;height:305px;">
+                      <div class="carousel-caption">
+                            <h3>The Ilustrados</h3>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                        <br>
+                      <h1>The Illustrados</h1>
+                      <br>
+                      <p>The ilustrados, or the educated class of Filipinos during the Spanish colonial period, were instrumental in the rise of Filipino nationalism. They were the first to articulate the need for national identity and independence, using their education and exposure to liberal ideas from Europe to challenge the oppressive Spanish rule.</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            <!--PHILIPPINE REVOLUTION-->
+            <div class="col-md-12">
+                <div class="Revolution">
+                <h1 class="revol"><b>The Philippine Revolution</b></h1>
+                <img class="century2" src="Images/19thCentury.jpg" alt="picture ni rizal">
+                    <p><b>The 19th century (1801-1900)</b> was a period of significant change and turning points in Philippine history and identity. During this time, the Philippines saw major shifts in political, economic, and social aspects, with nationalist sentiments awakening and a propaganda movement initiated by the educated Ilustrado class influenced by liberal ideas. This era also witnessed the rise of a national anti-colonial movement and revolution, leading to the declaration of independence.The development of a distinct Filipino identity emerged particularly among the mestizo elite. The most crucial event was the Philippine Revolution (1896-1898), a struggle for independence that, despite exposing the weaknesses of Spanish administration after over 300 years of colonial rule, ultimately failed to expel the Spaniards from the islands, leaving Filipinos with minor offices, limited public education, and largely ignored rights and wishes.</p>
+                </div>
+            </div>
+            <!--SOCIAL STRUCTURE-->
+        <h1 class="revol"><b>The Social Structure</b></h1>
+        <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="Images/peninsulares.jpg" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>The Highest Class</h3>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                      <br>
+                      <h1>The Highest Class</h1>
+                      <br>
+                        <h5>Spanish Officials, Peninsulares, Insulares, Friars</h5>
+                        <p>They have the power and authority to rule over the Filipinos</p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="Images/principalia.jpg" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>The Middle Class</h3>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                      <br>
+                      <h1>The Middle Class</h1>
+                      <br>
+                        <h5> Spanish Mestizos, Chinese Mestizos, Criollos, Principalia</h5>
+                        <p>They are mixed of Spanish and Full-blooded Filipinos</p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="Images/indios.jpg" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>The Lowest Class</h3>
+                            
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                      <br>
+                      <h1>The Lowest Class</h1>
+                      <br>
+                      <h5>Indios/Native Filipinos/The Masses</h5>
+                        <p>Poor Filipinos, the Indios are the poor natives or poor people having pure Filipino blood</p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+            </div>
+            </div>
+            </div>
+            <!-- EDUCATIONAL SYSTEM -->
+            <div class="container">
+                <div class="row">
+            <div class="col-md-6">
+                <img class="century3" src="Images/church.jpg" style="width:500px;height:500px; padding-top: 10%;">
+            </div>
+            <div class="bullet2 col-md-6">
+                <h1 class=""><b>Educational System</b></h1>
+
+                  <li>Overemphasis on religious matter</li>
+                  <li>Obsolete teaching methods</li>
+                  <li>Limited Curriculum</li>
+                  <li>Poor classroom facilities</li>
+                  <li>Absence of teaching materials</li>
+                  <li>Primary education was neglected</li>
+                  <li>Absence of academic freedom</li>
+                  <li>Prejudice against Filipinos in the schools</li>
+                  <li>Friar control over the system</li>
+
+            </div>
+        </div>
+    </div>
+    <!-- POLITICAL SYSTEM -->
+            <div class="container">
+                <div class="row">
+            <div class="bullet2 col-md-6">
+                <h1 class=""><b>Political System</b></h1>
+                <p>
+                  In the 19th century, the Philippines was under a one general government established by the Spanish colonizers, who subjugated the Filipinos.The Gobernador y Capitan-General served as the king of Spain’s representative in the islands, while the Vice-Real Patron had the authority to appoint individuals to ecclesiastical positions. Intramuros functioned as the seat of both government and religion. The Gobernadorcillo was the equivalent of today’s municipal mayor, and the Cabeza de Barangay was responsible for collecting taxes and contributions.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <img class="century3" src="Images/political.jpg" style="width:500px;height:500px; padding-bottom: 10%;">
+            </div>
+        </div>
+    </div>
+    <!-- Embedded YouTube Video -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/nvOhea-KxM8?start=624&autoplay=1" allow="autoplay" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <a class="back2" href="q1.html">Take Quiz</a>
+      <a class="back3" href="lesson4.html"> Next</a>
+    </div>
+    <div class="footer">
+        <p>&copy; 2024 Rizal Website. All rights reserved.</p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

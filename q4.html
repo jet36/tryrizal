@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Philippines in the 19th Century Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="q5.js" defer></script>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(120deg, #344632 0%, #848362 50%, #e1be96 100%);
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    max-width: 600px;
+    margin: 20px auto;
+    position: relative;
+    animation: slideIn 0.5s ease forwards;
+    transform: translateY(100%);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.question {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.question:hover {
+    transform: translateY(-5px);
+}
+
+.question h2 {
+    margin: 0;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.answers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    display: block;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 8px;
+    background: #f0f0f0;
+    color: #333;
+    transition: background 0.3s ease;
+    font-size: 16px;
+}
+
+label:hover {
+    background: #96b4e4;
+}
+
+input[type="radio"]:checked + label {
+    background: #e1be96;
+    color: #fff;
+}
+
+.button-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; /* Centers items vertically */
+        }
+
+        .back, .next, button {
+            padding: 15px 40px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            border-radius: 8px;
+            outline: none;
+            text-decoration: none;
+        }
+
+        .back {
+            background-color: #344632;
+            color: white;
+     
+        }
+
+        .back:hover{
+            background: #84836a;
+            color: white;
+            text-decoration: none;
+        }
+        .back a{
+            text-decoration: none;
+            color:white;
+        }
+        .next a{
+            text-decoration: none;
+            color: black;
+        }
+        a .next, .back{
+            color: black;
+        }
+
+        .next {
+            background: linear-gradient(to bottom right, #96b4e4,#80a3d4);
+            color: black;
+        }
+
+        .next:hover {
+            background: #96b4e4;
+            color: black;
+            text-decoration: none;
+        }
+
+        button {
+            background: #c0c0c0;
+            color: black;
+        }
+
+        button:hover {
+            background: red;
+            color: white;
+            text-decoration: none;
+        }
+
+#results {
+    margin-top: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    display: none;
+}
+
+.correct {
+    color: green;
+    padding: 2%;
+}
+
+.wrong {
+    color: red;
+    padding: 2%;
+}
+
+@keyframes slideIn {
+    to {
+        transform: translateY(0%);
+    }
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    form {
+        gap: 20px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rizal’s Life: Family, Childhood, Early Education Quiz</h1>
+        <form id="quizForm">
+            <div id="quizContainer"></div>
+            <button type="button" onclick="submitQuiz()">Submit</button>
+            <button type="button" class="next"><a href="lesson4.html">Exit</a></button>
+        </form>
+       
+        <div id="results"></div>
+    </div>
+</body>
+</html>

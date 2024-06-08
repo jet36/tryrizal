@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style1.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            overflow: hidden;
+        }
+        nav a {
+            text-decoration: none;
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            float: left;
+        }
+        nav a:hover {
+            text-decoration: none;
+            background-color: #ddd;
+            color: black;
+        }
+
+        .dropdown {
+            float: left;
+            font-size: 15px;
+        }
+
+        .dropdown .dropbtn {
+            font-size: 16px;  
+            border: none;
+            outline: none;
+            color: white;
+            padding: 0px 16px;
+            background-color: inherit;
+            margin: 0;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: fixed;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 10px 10px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .navbar a:hover, .dropdown:hover .dropbtn {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .divider {
+            height: 1px;
+            background-color: #ccc;
+            margin: 20px 0;
+        }
+
+        .about-us {
+            text-align: center;
+            padding: 40px 0;
+            background-color: white;
+            color: black;
+        }
+
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .card-title {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .card-text {
+            color: #666;
+        }
+
+        .contact-us {
+            padding: 40px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .contact-us h3 {
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .century {
+            text-align: center;
+            padding-top: 40px;
+        }
+
+        .back {
+            margin: 15px;
+            padding: 10px;
+            background-color: #848368;
+            color: white;
+            display: -webkit-inline-box;
+        }
+
+        .back:hover {
+            background: #dbbc9a;
+            color: black;
+            text-decoration: none;
+        }
+        .back2 {
+            margin: 15px;
+            padding: 1%;
+            margin-left: 90%;
+            width: 8%;
+            background: linear-gradient(to bottom right, #84836a,#84836a);
+            color: white;
+            display: inline-block;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+        .back2:hover {
+          background: #dbbc9a;
+          color: black;
+          text-decoration: none;
+        }
+        .back3 {
+          text-align: center;
+            margin-top: 15px;
+            margin-bottom: 2%;
+            padding: 1%;
+            margin-left: 90%;
+            width: 8%;
+            height: 0%;
+            background: linear-gradient(to bottom right, #84836a,#84836a);
+            color: white;
+            display: inline-block;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+        .back3:hover{
+          background: #dbbc9a;
+          color: black;
+          text-decoration: none;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            width: 330px;
+            height: 330px;
+            perspective: 1000px;
+            margin: 15px;
+            padding-bottom: 25px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+
+        .flip-card-front {
+            background-color: #bbb;
+            color: black;
+        }
+
+        .flip-card-back {
+            background-color: #e1be96;
+            color: white;
+            transform: rotateY(180deg);
+        }
+        .carousel-caption {
+            position: absolute;
+            transform: translate(-0%, -30%);
+            background-color: rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .carousel-caption h3 {
+            color: white;
+        }
+
+        .carousel-caption p {
+            color: white;
+        }
+        .Revolution {
+            padding: 80px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-size: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .influence1 {
+            padding: 50px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-size: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .revol{
+            padding: 10px;
+            text-align: center;
+        }
+        .century2{
+            max-width: 40em;
+            max-height: 30em;
+            display: flex;
+            padding-bottom: 100px;
+        }
+        .bullet{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 70px;
+           text-align: center;
+         }
+
+        .century3{
+            max-width: 40em;
+            max-height: 30em;
+            display: flex;
+            padding-bottom: 100px;
+        }
+        .bullet2{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-bottom: 70px;
+            text-align: center;
+        }
+        .container{
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+
+        <div class="dropdown">
+        <button class="dropbtn"><a href="rizal.html">Rizal's Life</a>
+          <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+          <a href="rizal.html">Dr. Jose Rizal</a>
+          <a href="lesson2.html">History (19th Century)</a>
+          <a href="lesson4.html">Rizal’s Life: Family, Childhood and Early Education</a>
+          <a href="lesson5.html">Rizal’s Life: Higher Education and Life Abroad</a>
+          <a href="propaganda.html">Propaganda Movement</a>
+        </div>
+      </div> 
+
+        <a href="#about-us">About Us</a>
+        <a href="#contact-us">Contact Us</a>
+    </nav>
+    <a class="back" href="rizalinfo.html">< Back</a>
+    
+            <!--PHILIPPINE REVOLUTION-->
+            <div class="col-md-12">
+                <div class="Revolution">
+                <h1 class="revol"><b>Rizal’s Life: Family, Childhood, Early Education</b></h1>
+                <img class="century2" src="Images/rizal.png" alt="picture ni rizal">
+                    <p>Jose Protacio Mercado Rizal Alonzo y Realonda was born on June 19, 1861, between 11 pm and 12 am, in Calamba, Laguna. He had a diverse heritage that included Chinese, Malay, Indonesian, and Japanese ancestry. His father, Don Francisco Mercado, built a nipa hut, while his mother, Doña Teodora Alonzo, taught him the Angelus and Catholic teachings. Despite being sick and frail, Rizal came from a notable lineage, with his great-great-grandfather, Domingo Lam-co, being a Chinese immigrant and business tycoon.</p>
+                </div>
+            </div>
+            <!--Siblings-->
+        <h1 class="revol"><b>Dr. Jose Rizal's Siblings</b></h1>
+        <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="Images/saturnina.jpg" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>Saturnina Hidalgo</h3>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                      <br>
+                      <h1>Saturnina Hidalgo</h1>
+                      <br>
+                        <p>Saturnina Rizal Mercado de Hidalgo, or simply Saturnina Hidalgo, was the eldest sister of Philippine national hero José Rizal.</p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="Images/paciano.jpg" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>Paciano Rizal</h3>
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                      <br>
+                      <h1>Paciano Rizal</h1>
+                      <br>
+                        <p>Paciano Rizal Mercado y Alonso Realonda was a Filipino general and revolutionary, and the older brother of José Rizal, the national hero of the Philippines.</p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="Images/narcisa.jpg" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>Narcisa Rizal</h3>
+                            
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                      <br>
+                      <h1>Narcisa Rizal</h1>
+                      <br>
+                        <p>Narcisa Rizal Lopez was born in 1852 and was the one who found the unmarked grave of her brother, Jose in the abandoned Old Paco Cemetery. Narcisa married Antonio Lopez who was a teacher and musician from Morong, Rizal. </p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="Images/olympia.jpg" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>Olympia Rizal</h3>
+                            
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                      <br>
+                      <h1>Olympia Rizal</h1>
+                      <br>
+                        <p>Olympia Rizal Mercado (1855-1887), was Jose Rizal Mercado's sister. She was the fourth child in the Rizal Mercado family.  She was the fourth child in the Rizal Mercado family and was a custodian of Rizal's last and greatest poem </p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="Images/lucia.jpg" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>Lucia Alonso Herbosa</h3>
+                            
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                      <br>
+                      <h1>Lucia Alonso Herbosa</h1>
+                      <br>
+                        <p>Lucia Rizal (1857–1919) is the fifth child in the Rizal family. Charged of inciting the Calamba townsfolk not to pay land rent and causing unrest, the couple was once ordered to be deported along with some Rizal family members.</p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="Images/maria.jpg" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>Maria Rizal</h3>
+                            
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                      <br>
+                      <h1>Maria Rizal</h1>
+                      <br>
+                        <p>Maria Rizal is the sixth child in the family. It was to her whom Jose talked about wanting to marry Josephine Bracken when the majority of the Rizal family was apparently not amenable to the idea.</p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="Images/concepcion.jpg" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>Concepcion Rizal</h3>
+                            
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                      <br>
+                      <h1>Concepcion Rizal</h1>
+                      <br>
+                        <p>Concepcion Rizal, also called 'Concha' by her siblings, was the eight child of the Rizal family. She died at the age of three. Of his sisters, it is said that Pepe loved most the little Concha who was a year younger than him. </p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="Images/josefa.jpg" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>Josefa Rizal</h3>
+                            
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                      <br>
+                      <h1>Josefa Rizal</h1>
+                      <br>
+                        <p>She was one of the original 29 women Josefa Rizal, one of the original 29 women admitted to the Katipunan along with Gregoria de Jesus, wife of Andres Bonifacio Trinidad Rizal, historically, she became the custodian of Rizal's last and greatest poem. </p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="Images/trinidad.jpg" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>Trinidad Rizal</h3>
+                            
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                      <br>
+                      <h1>Trinidad Rizal</h1>
+                      <br>
+                        <p>Trinidad Rizal y Alonso, commonly known as Trinidad Rizal, was a Filipina feminist leader and co-founder of the Philippines' first feminist organization, the Asociación Femenista Filipina. She was the tenth sibling of the national hero, physician and writer, Dr. José Rizal.</p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="flip-card">
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                      <img src="Images/soledad.jpg" alt="Avatar" style="width:330px;height:305px;">
+                        <div class="carousel-caption">
+                            <h3>Soledad Rizal</h3>
+                            
+                        </div>
+                    </div>
+                    <div class="flip-card-back">
+                      <br>
+                      <h1>Soledad Rizal</h1>
+                      <br>
+                        <p>Also called ‘Choleng,’ Soledad Rizal (1870-1929) was the youngest child of the Rizal family. Being a teacher, she was arguably the best educated among Rizal’s sisters.</p>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+            </div>
+            </div>
+            </div>
+
+            <!--EARLY EDUCATION AT LAGUNA-->
+            <div class="col-md-12">
+                <div class="Revolution">
+                <h1 class="revol"><b>Biñan, Laguna</b></h1>
+                <img class="century2" src="Images/binan.jpg" alt="picture ni rizal"w style=" width: 50em; height: 50em;">
+                    <p>In 1869, under the guidance of his older brother Paciano, who acted as a second father to him, Jose Rizal began his formal education in Biñan with Maestro Justiniano Aquino Cruz as his first formal teacher. Rizal excelled in his studies, particularly in Spanish and Latin, surpassing all his subjects. His education focused on reading, writing, arithmetic, and religion, laying a strong foundation for his future intellectual pursuits.</p>
+                    <br>
+                    <br>
+                    <h4><b>INFLUENCES</b></h4>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4">
+                            <div class="influence1">
+                                <h3>Don Francisco</h3>
+                                <br>
+                                <li>Value of respect</li>
+                                <li>Hardworking</li>
+                                <li>Independent thinking</li>
+                            </div>
+                            </div>
+
+                            <div class="col-md-4">
+                            <div class="influence1">
+                                <h3>Doña Teodora</h3>
+                                <br>
+                                <li>High sense of justice</li>
+                                <li>Religiosity</li>
+                                <li>Love for arts</li>
+                            </div>
+                            </div>
+
+                            <div class="col-md-4">
+                            <div class="influence1">
+                                <h3>Paciano</h3>
+                                <br>
+                                <li>Love of freedom and<center>justice</center></li>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h4><b>Extended Family</b></h4>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4">
+                            <div class="influence1">
+                                <h3>Uncle Gregorio</h3>
+                                <br>
+                                <li>Love for Education</li>
+                                <li>To be hardworking</li>
+                            </div>
+                            </div>
+
+                            <div class="col-md-4">
+                            <div class="influence1">
+                                <h3>Uncle Jose</h3>
+                                <br>
+                                <li>Painting, scalping, <center>sketching</center></li>
+                            </div>
+                            </div>
+
+                            <div class="col-md-4">
+                            <div class="influence1">
+                                <h3>Uncle Manuel</h3>
+                                <br>
+                                <li>Independent thinker of wide intelligence.</li>
+                                <li>Fair judgement</li>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Embedded YouTube Video -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/vIhIwmHuJ4M?autoplay=1" allow="autoplay" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a class="back2" href="q4.html">Take Quiz</a>
+                <a class="back3" href="lesson5.html"> Next</a>
+            </div>
+            <div class="footer">
+                <p>&copy; 2024 Rizal Website. All rights reserved.</p>
+            </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
