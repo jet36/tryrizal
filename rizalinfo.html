@@ -220,38 +220,55 @@
           color: black;
           text-decoration: none;;
         }
-    
-        .famous-works {
-            display: flex;
-            justify-content: space-around;
-            padding: 40px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            background-color: #fff;
-            transition: transform 0.3s, box-shadow 0.3s;
-            margin-bottom: 30px;
+        .image-container {
+            position: relative;
+            display: inline-block;
+        }
+        .image-container img {
+            display: block;
+            width: 360px; 
+            height: auto;
         }
 
-        .famous-works:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .image-container a {
+            text-decoration: none; 
         }
 
-        .famous-work img {
-            height: 300px;
-            object-fit: cover;
-            border-radius: 8px;
-            width: 500px;
+        .image-container a::after {
+            content: "Click here";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px 20px;
+            border-radius: 5px;
+            font-size: 20px;
+            display: none;
+            pointer-events: none; /* Ensure the text is not clickable */
         }
 
-        .famous-work h3 {
+        .image-container a:hover::after {
+            display: block;
+        }
+
+        .image-container h3 {
             margin-top: 20px;
             color: #344632;
             text-align: center;
         }
 
+        .image-container p{
+            text-decoration: none;
+            color: #000;
+            font-size: 2.2rem;
+            padding: 5%;
+            text-align: center;
+        }
+
         @media (max-width: 576px) {
-            .rizalPic, .famous-works {
+            .rizalPic, .image-container {
                 flex-direction: column;
                 align-items: center;
             }
@@ -287,11 +304,11 @@
         <div class="dropdown">
             <button class="dropbtn"><a href="rizal.html">Rizal's Life</a> <i class="fa fa-caret-down"></i></button>
             <div class="dropdown-content">
-                <a href="rizalinfo.html">Dr. Jose Rizal</a>
-                <a href="rizal_law.html">Republict Act 1425 (Rizal Law)</a>
-                <a href="lesson2.html">History (19th Century)</a>
-                <a href="lesson4.html">Rizal’s Life: Family, Childhood and Early Education</a>
-                <a href="lesson5.html">Rizal’s Life: Higher Education and Life Abroad</a>
+                <a href="rizalinfo.html">   Dr. Jose Rizal</a>
+                <a href="rizal_law.html">   Rizal Law</a>
+                <a href="lesson2.html"> Philippines in 19th Century</a>
+                <a href="lesson4.html"> Rizal’s Life: Family, Childhood and Early Education</a>
+                <a href="lesson5.html"> Rizal’s Life: Higher Education and Life Abroad</a>
                 <a href="propaganda.html">Propaganda Movement</a>
             </div>
         </div>
@@ -363,15 +380,17 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <div class="famous-work">
-                    <img src="Images/Noli Me Tangere.jpg" alt="Noli Me Tangere">
-                    <h3><a href="https://pinoycollection.com/noli-me-tangere-buod/">Noli Me Tangere</a></h3>
+                <div class="image-container">
+                    <a href="https://pinoycollection.com/noli-me-tangere-buod/" target="_blank">
+                        <img src="Images/Noli Me Tangere.jpg" alt="Sample Image"><p>Noli Me Tangere</p>
+                    </a>
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="famous-work">
-                    <img src="Images/El Filibusterismo.jpg" alt="El Filibusterismo">
-                    <h3><a href="https://pinoycollection.com/el-filibusterismo-buod/">El Filibusterismo</a></h3>
+                <div class="image-container">
+                    <a href="https://pinoycollection.com/el-filibusterismo-buod/" target="_blank">
+                        <img src="Images/El Filibusterismo.jpg" alt="Sample Image"><p>El Filibusterismo</p>
+                    </a>
                 </div>
             </div>
         </div>
@@ -385,12 +404,12 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="mission">
-                    <a href="rizal_law.html">Republict Act 1425 (Rizal Law)</a>
+                    <a href="rizal_law.html">Rizal Law</a>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="mission">
-                    <a href="lesson2.html">History 19th Century</a>
+                    <a href="lesson2.html">Philippines in 19th Century</a>
                 </div>
             </div>
             <div class="col-md-4">
